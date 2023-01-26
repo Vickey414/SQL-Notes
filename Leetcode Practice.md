@@ -1,8 +1,8 @@
-# 511. Game Play Analysis II
+## 511. Game Play Analysis II
 
 *Write an SQL query to report the device that is first logged in for each player. Return the result table in any order.*
 <img width="509" alt="image" src="https://user-images.githubusercontent.com/29950267/214848609-1a4cbdb6-8025-447d-b273-8f198c507754.png">
-## Solution
+#### Solution
 ```sql
 select a.player_id, b.device_id 
 from 
@@ -17,10 +17,10 @@ left join
 ```
 
 
-# 512. Game Play Analysis III
+## 512. Game Play Analysis III
 *Write an SQL query to report for each player and date, how many games played so far by the player. That is, the total number of games played by the player until that date. Check the example for clarity.*
 <img width="666" alt="image" src="https://user-images.githubusercontent.com/29950267/214850129-3b2eb935-f6f1-4b18-b4d7-f3944cb174a9.png">
-## Solution
+#### Solution
 ```sql
 select 
     a.player_id, 
@@ -55,11 +55,11 @@ on a.player_id = b.player_id
 and datediff(b.event_date,a.first_login) 
 ```
 
-# 550. Game Play Analysis V
+## 550. Game Play Analysis V
 *The install date of a player is the first login day of that player.We define day one retention of some date x to be the number of players whose install date is x and they logged back in on the day right after x, divided by the number of players whose install date is x, rounded to 2 decimal places.
 Write an SQL query to report for each install date, the number of players that installed the game on that day, and the day one retention. Return the result table in any order.*
 <img width="654" alt="image" src="https://user-images.githubusercontent.com/29950267/214849970-b6bb07db-b082-4b52-aa8a-c0be0aca7fc0.png">
-## Solution
+#### Solution
 ```sql
 select 
     n.install_dt, 
@@ -82,10 +82,10 @@ from
     group by n.install_dt
 ```
 
-# 571. Find Median Given Frequency of Numbers
+## 571. Find Median Given Frequency of Numbers
 *The median is the value separating the higher half from the lower half of a data sample.Write an SQL query to report the median of all the numbers in the database after decompressing the Numbers table. Round the median to one decimal point.*
 <img width="651" alt="image" src="https://user-images.githubusercontent.com/29950267/214853100-b8141f35-2942-4d95-a612-6c642f1b15ce.png">
-## Solution
+#### Solution
 ```sql
 select 
     round(sum(num)/2,1) as median 
@@ -99,10 +99,11 @@ from
      and accumulated_sum - frequency <= median_num
 ```
 
-# 1082. Sales Analysis I
+## 1158. Market Analysis I
 *Write an SQL query that reports the best seller by total sales price, If there is a tie, report them all.Return the result table in any order.*
 <img width="649" alt="image" src="https://user-images.githubusercontent.com/29950267/214867270-e6b368ba-2ae4-4568-a290-dcc90ae175f8.png">
 
+#### Solution
 ```sql
 select 
     u.user_id as buyer_id,
@@ -114,4 +115,24 @@ Orders o
 on u.user_id = o.buyer_id
 and year(o.order_date) = "2019"
 group by u.user_id
+```
+
+## 1159. Market Analysis II
+
+
+## 1083. Sales Analysis II
+*Write an SQL query that reports the buyers who have bought S8 but not iPhone. Note that S8 and iPhone are products present in the Product table.*
+<img width="645" alt="image" src="https://user-images.githubusercontent.com/29950267/214878268-85ddbc4e-67a9-4cad-8962-935fda8fa749.png">
+
+#### Solution
+```sql
+with table1 as
+(select buyer_id, product_name
+from Sales s
+left join Product p
+on s.product_id = p.product_id)
+select distinct buyer_id 
+from table1
+    where buyer_id in (select buyer_id from table1 where product_name = "S8")
+    and buyer_id not in (select buyer_id from table1 where product_name ="iPhone")
 ```
