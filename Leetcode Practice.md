@@ -1,8 +1,6 @@
 # 511. Game Play Analysis II
 
 *Write an SQL query to report the device that is first logged in for each player. Return the result table in any order.*
-<img width="562" alt="image" src="https://user-images.githubusercontent.com/29950267/214850283-9635476f-5fb7-4edc-b7b5-0d1fc428f431.png">
-
 <img width="509" alt="image" src="https://user-images.githubusercontent.com/29950267/214848609-1a4cbdb6-8025-447d-b273-8f198c507754.png">
 ## Solution
 ```
@@ -49,6 +47,20 @@ and datediff(b.event_date,a.first_login)
 Write an SQL query to report for each install date, the number of players that installed the game on that day, and the day one retention. Return the result table in any order.*
 <img width="654" alt="image" src="https://user-images.githubusercontent.com/29950267/214849970-b6bb07db-b082-4b52-aa8a-c0be0aca7fc0.png">
 ## Solution
-
+```
+select 
+    n.install_dt, 
+    count(n.install_dt) as installs,
+    round(count(n.id_2)/count(n.install_dt),2) as Day1_retention
+from
+(select a.first_login as install_dt, a.player_id as id_0, b.player_id as id_2 from 
+(select player_id, min(event_date) as first_login 
+from Activity
+group by player_id) as a
+left join Activity as b
+on a.player_id = b.player_id
+and datediff(b.event_date,a.first_login) = 1) as n
+group by n.install_dt
+```
 
 
