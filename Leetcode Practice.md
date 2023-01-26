@@ -1,6 +1,6 @@
 # 511. Game Play Analysis I
 
-*Write an SQL query to report the device that is first logged in for each player. Return the result table in any order. *
+*Write an SQL query to report the device that is first logged in for each player. Return the result table in any order.*
 
 ## Solution
 ```
