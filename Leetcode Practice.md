@@ -6,11 +6,14 @@
 ```sql
 select a.player_id, b.device_id 
 from 
-(select player_id, min(event_date) as first_login from Activity
+(select 
+    player_id, min(event_date) as first_login 
+from Activity
 group by player_id) as a 
-left join Activity b
-on a.player_id = b.player_id
-and a.event_date >= b.event_date
+left join 
+    Activity b
+    on a.player_id = b.player_id
+    and a.event_date >= b.event_date
 ```
 
 
@@ -19,11 +22,17 @@ and a.event_date >= b.event_date
 <img width="666" alt="image" src="https://user-images.githubusercontent.com/29950267/214850129-3b2eb935-f6f1-4b18-b4d7-f3944cb174a9.png">
 ## Solution
 ```sql
-select a.player_id, a.event_date,sum(b.games_played) as games_played_so_far from Activity as a
-left join Activity b
-on a.player_id = b.player_id
-and a.event_date >= b.event_date
-group by a.player_id, a.event_date!
+select 
+    a.player_id, 
+    a.event_date,
+    sum(b.games_played) as games_played_so_far 
+from Activity as a
+left join 
+    Activity b
+    on a.player_id = b.player_id
+    and a.event_date >= b.event_date
+group by 
+    a.player_id, a.event_date!
 ```
 
 # 534. Game Play Analysis IV
@@ -34,10 +43,14 @@ group by a.player_id, a.event_date!
 ```sql
 select round(sum(case when b.event_date is null then 0 else 1 end)/count(distinct(a.player_id)),2) as fraction
 from 
-(select player_id, min(event_date) as first_login 
+(select 
+    player_id, 
+    min(event_date) as first_login 
 from  Activity 
-group by player_id) as a
-left join Activity b
+group by 
+    player_id) as a
+left join 
+    Activity b
 on a.player_id = b.player_id
 and datediff(b.event_date,a.first_login) 
 ```
@@ -53,14 +66,52 @@ select
     count(n.install_dt) as installs,
     round(count(n.id_2)/count(n.install_dt),2) as Day1_retention
 from
-(select a.first_login as install_dt, a.player_id as id_0, b.player_id as id_2 from 
-(select player_id, min(event_date) as first_login 
-from Activity
-group by player_id) as a
-left join Activity as b
-on a.player_id = b.player_id
-and datediff(b.event_date,a.first_login) = 1) as n
-group by n.install_dt
+    (select 
+        a.first_login as install_dt, 
+        a.player_id as id_0, 
+        b.player_id as id_2 
+     from 
+    (select 
+        player_id, 
+        min(event_date) as first_login 
+    from Activity
+    group by player_id) as a
+    left join Activity as b
+        on a.player_id = b.player_id
+        and datediff(b.event_date,a.first_login) = 1) as n
+    group by n.install_dt
 ```
 
+# 571. Find Median Given Frequency of Numbers
+*The median is the value separating the higher half from the lower half of a data sample.Write an SQL query to report the median of all the numbers in the database after decompressing the Numbers table. Round the median to one decimal point.*
+<img width="651" alt="image" src="https://user-images.githubusercontent.com/29950267/214853100-b8141f35-2942-4d95-a612-6c642f1b15ce.png">
+## Solution
+```sql
+select 
+    round(sum(num)/2,1) as median 
+from 
+    (select 
+        *,
+        sum(frequency) over(order by num) as accumulated_sum,
+        sum(frequency) over()/2 as median_num
+     from Numbers) as m
+     where accumulated_sum >= median_num 
+     and accumulated_sum - frequency <= median_num
+```
 
+# 1082. Sales Analysis I
+*Write an SQL query that reports the best seller by total sales price, If there is a tie, report them all.Return the result table in any order.*
+<img width="649" alt="image" src="https://user-images.githubusercontent.com/29950267/214867270-e6b368ba-2ae4-4568-a290-dcc90ae175f8.png">
+
+```sql
+select 
+    u.user_id as buyer_id,
+    u.join_date as join_date,
+    count(o.order_id) as orders_in_2019
+from Users u
+left join 
+Orders o
+on u.user_id = o.buyer_id
+and year(o.order_date) = "2019"
+group by u.user_id
+```
