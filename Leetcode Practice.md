@@ -3,7 +3,7 @@
 *Write an SQL query to report the device that is first logged in for each player. Return the result table in any order.*
 <img width="509" alt="image" src="https://user-images.githubusercontent.com/29950267/214848609-1a4cbdb6-8025-447d-b273-8f198c507754.png">
 ## Solution
-```
+```sql
 select a.player_id, b.device_id 
 from 
 (select player_id, min(event_date) as first_login from Activity
@@ -18,7 +18,7 @@ and a.event_date >= b.event_date
 *Write an SQL query to report for each player and date, how many games played so far by the player. That is, the total number of games played by the player until that date. Check the example for clarity.*
 <img width="666" alt="image" src="https://user-images.githubusercontent.com/29950267/214850129-3b2eb935-f6f1-4b18-b4d7-f3944cb174a9.png">
 ## Solution
-```
+```sql
 select a.player_id, a.event_date,sum(b.games_played) as games_played_so_far from Activity as a
 left join Activity b
 on a.player_id = b.player_id
@@ -31,7 +31,7 @@ group by a.player_id, a.event_date!
 <img width="659" alt="image" src="https://user-images.githubusercontent.com/29950267/214850041-c0a6d5e7-c3ea-475c-92bb-fdf5196bfc2e.png">
 
 ## Solution
-```
+```sql
 select round(sum(case when b.event_date is null then 0 else 1 end)/count(distinct(a.player_id)),2) as fraction
 from 
 (select player_id, min(event_date) as first_login 
@@ -47,7 +47,7 @@ and datediff(b.event_date,a.first_login)
 Write an SQL query to report for each install date, the number of players that installed the game on that day, and the day one retention. Return the result table in any order.*
 <img width="654" alt="image" src="https://user-images.githubusercontent.com/29950267/214849970-b6bb07db-b082-4b52-aa8a-c0be0aca7fc0.png">
 ## Solution
-```
+```sql
 select 
     n.install_dt, 
     count(n.install_dt) as installs,
