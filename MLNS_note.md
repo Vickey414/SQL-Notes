@@ -79,4 +79,12 @@ logp(k) = logc
 #### Are these values “expected”? Are they “surprising”?
 Model we use to answer this model: The Erdős–Rényi random graph model
 ##### The Erdős–Rényi random graph model
+<img width="881" alt="image" src="https://user-images.githubusercontent.com/29950267/215054506-38155f75-d930-4b23-8d23-ad25a162e9da.png">
+We use statiscal model to generate the model, and use the graph to compare with real-life model.
+Gn,p: undirected graph on n nodes and each edge (u, v) appears i.i.d. with probability p
+Gn,m : undirected  graph with n nodes, and m uniformly at random picked edges(m个服从正态分布的nodes)
+
+
+
+
 
