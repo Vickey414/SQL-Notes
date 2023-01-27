@@ -136,3 +136,17 @@ from table1
     where buyer_id in (select buyer_id from table1 where product_name = "S8")
     and buyer_id not in (select buyer_id from table1 where product_name ="iPhone")
 ```
+
+
+## 京东SQL面试题
+![image](https://user-images.githubusercontent.com/29950267/215034371-f29632b6-65ac-4e82-b88e-9ba679c10354.png)
+
+
+```sql
+select earlydate, count(user_id) as new_customer_num
+(select user_id,min(orderdate) as earlyday
+from order
+group by user_id)tmp
+where datediff(curdate(),earlyday))<30
+group by earlyday
+```
