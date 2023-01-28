@@ -139,6 +139,7 @@ from table1
 
 
 ## 京东SQL面试题
+#### 1. 考察日期函数
 ![image](https://user-images.githubusercontent.com/29950267/215034371-f29632b6-65ac-4e82-b88e-9ba679c10354.png)
 
 
@@ -150,3 +151,23 @@ group by user_id)tmp
 where datediff(curdate(),earlyday))<30
 group by earlyday
 ```
+
+
+#### 2. 考察case when函数
+![image](https://user-images.githubusercontent.com/29950267/215260284-2e495f07-eb58-482d-9f43-b343bd9d9379.png)
+
+```sql
+select 
+    gender,
+    sum(case when age < 20 then 1 else 0 end) "under 20",
+    sum(case when age > 40 then 1 else 0 end) "above 40"
+    sum(case when age >20 and age < 40 then 1 else 0 end) "between 20 and 40"
+from user  
+group by gender
+```
+
+#### 3. 考察窗口函数
+![image](https://user-images.githubusercontent.com/29950267/215260758-ac9a2ec1-c4d0-4e76-961a-5fa31eeef4c9.png)
+
+
+    
