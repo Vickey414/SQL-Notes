@@ -15,7 +15,7 @@ $\gamma_k$ is the corresponding predicted value or class for the dependent varia
   * By minimizing a given risk function or impurity measure.
       R(f):= P(y $\neq$ f(x))
 ###### Building a regression decision Tree
-Given a learning set D ={ ($x_i$ , $y_i$) ${1 \leq i \leq n}$ ⊂ X×Y and using the empirical quadratic risk function, one should solve:
+Given a learning set D ={ $( $x_i$ , $y_i$)_ {1 \leq i \leq n}$ ⊂ X×Y and using the empirical quadratic risk function, one should solve:
 
 
 ##### CART  
