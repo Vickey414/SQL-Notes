@@ -29,4 +29,5 @@ Definition: CART provides a partition of $R_2$ in classes by horizontal/vertical
 >>> *  maximum number of leaves
 >>> *  minimum number of sample per leaf
 >> * Pruning: We make the tree grow to the maximum and then we remove the uninteresting nodes.
->>> * 
+>>> * Penalized Criterion
+>>> $R_α(f_T)$ = $R_n(f_T)$ + α ${|T|} \over n$
