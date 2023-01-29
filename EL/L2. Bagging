@@ -1,0 +1,15 @@
+# Bagging
+ Based on two key points : boostrap and aggregation.  
+ Bagging create training subsets using bootstrap sampling.  
+ ## Boostrapping
+ >> To create a new “base learner" $f_b$ ,
+  >>> 1. we randomly draw with replacement a dataset $D_b$ of ntrain observations from the training set
+  >>> 2.we learn the method (ex: CART) on it → the “base learner" fb is obtained
+  >>> Note: each $D_b$  has the same size as the original training set
+## Steps of bagging
+> Consists to
+  >> * 1. Do boostrapping B times producing B bootstrap datasets $D_b$ 
+  >>> then B predictors (“base learners") fb for each of these datasets
+  >> * 2. Aggregate the predictors
+
+  
