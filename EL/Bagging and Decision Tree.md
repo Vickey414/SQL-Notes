@@ -13,7 +13,7 @@ $\gamma_k$ is the corresponding predicted value or class for the dependent varia
 
 ##### How to evaluate DT
   * By minimizing a given risk function or impurity measure.
-      R(f):=P(y$\neq$ f(x))
+      R(f):= P(y $\neq$ f(x))
 
 ##### CART  
 Definition: CART provides a partition of $R_2$ in classes by horizontal/vertical line segments.  
