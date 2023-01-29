@@ -15,11 +15,15 @@ $\gamma_k$ is the corresponding predicted value or class for the dependent varia
   * By minimizing a given risk function or impurity measure.
       R(f):= P(y $\neq$ f(x))
 ###### Building a regression decision Tree
-Given a learning set D ={ ( $x_i$ , $y_i$)_ $1 \leq i \leq n$ ⊂ X×Y and using the empirical quadratic risk function, one should solve:
-
+Given a learning set D ={ ( $x_i$ , $y_i$)_ $1 \leq i \leq n$ } ⊂ X×Y and using the empirical quadratic risk function, one should solve:
+<img width="640" alt="image" src="https://user-images.githubusercontent.com/29950267/215343140-a98d0a2b-e116-4110-b1fa-268f7b4114da.png">
+<img width="640" alt="image" src="https://user-images.githubusercontent.com/29950267/215343164-1729bf4d-42d8-445e-b292-6a0d1508eb44.png">
+* Conclusion
+<img width="640" alt="image" src="https://user-images.githubusercontent.com/29950267/215343197-21ab7906-f9d8-4ae6-8088-248d02075ad1.png">
 
 ##### CART  
 Definition: CART provides a partition of $R_2$ in classes by horizontal/vertical line segments.  
+<img width="640" alt="image" src="https://user-images.githubusercontent.com/29950267/215343244-e1559df3-33f5-48a9-9bbe-61528eddd0d3.png">
 
 
 ##### How  much  should  we  let  the  tree  grow?
