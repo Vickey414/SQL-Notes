@@ -52,4 +52,8 @@ To split nodes, we want to choose a split yielding a maximal impurity reduction 
  * Misclassiﬁcation error: Q( $D_k$ ) = ${1} \over {n_k}$ $\displaystyle\sum_{x_i \in R_k}$ $I_{{y_i \neq c(k)}}$ = 1 - $P_{k,c(k)}$
  * Ginni error: Q( $D_k$ ) = $\displaystyle\sum_{c \neq c'}$ $P_{k,c} P_{k,c'}$ = $\displaystyle\sum_{c=1}^C$ $P_{k,c}(1-P_{k,c}) $
  * Entropy error: Q( $D_k$ ) = - $\displaystyle\sum_{c=1; P_{k,c} \neq 0}^C$ $P_{k,c} ln(P_{k,c})$
+<img width="372" alt="image" src="https://user-images.githubusercontent.com/29950267/215356721-47466acd-6654-4542-b14e-3aae36b58b05.png">
 
+###### Difference of Gini or Cross-entropy
+    * Gini impurity is slightly faster to compute ⇒ it is a good default 
+    * However, when they differ, Gini impurity tends to isolate the most frequent class in its own branch of the tree, while entropy tends to produce slightly more balanced trees
