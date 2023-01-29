@@ -49,6 +49,7 @@ Definition: CART provides a partition of $R_2$ in classes by horizontal/vertical
 <img width="640" alt="image" src="https://user-images.githubusercontent.com/29950267/215356153-6eaba252-886a-44d1-84e2-2992a3fb5350.png">
 
 To split nodes, we want to choose a split yielding a maximal impurity reduction to solve the optimization problem 
- * Misclassiﬁcation error: Q($D_k$) = ${1} \over {n_k}$ $\displaystyle\sum_{x_i \in R_k}$ $I_{{y_i \neq c(k)}}$ = 1- $P_{k,c(k)}$
-
+ * Misclassiﬁcation error: Q( $D_k$ ) = ${1} \over {n_k}$ $\displaystyle\sum_{x_i \in R_k}$ $I_{{y_i \neq c(k)}}$ = 1 - $P_{k,c(k)}$
+ * Ginni error: Q( $D_k$ ) = $\displaystyle\sum_{c \neq c'}$ $P_{k,c} P_{k,c'}$ = $\displaystyle\sum_{c=1}^C$ $P_{k,c}(1-P_{k,c}) $
+ * Entropy error: Q( $D_k$ ) = - $\displaystyle\sum_{c=1; P_{k,c} \neq 0}^C$ $P_{k,c} ln(P_{k,c})$
 
