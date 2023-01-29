@@ -168,6 +168,42 @@ group by gender
 
 #### 3. 考察窗口函数
 ![image](https://user-images.githubusercontent.com/29950267/215260758-ac9a2ec1-c4d0-4e76-961a-5fa31eeef4c9.png)
+```sql
+select category, product, total_sale
+from
+    (
+    select 
+        *, rank() over (partition by category order by total_sale desc) as rank
+    from(
+            select 
+                category, product, sum(sale_num) as total_sale
+            from ord
+            group by category, product
+        ) tmp1
+    )tmp2
+where rank = 1
+```
 
+#### 4. 考察窗口函数和日期函数
+![image](https://user-images.githubusercontent.com/29950267/215327932-1170dbed-2fea-4588-989a-2edf3f57e27a.png)
 
+```sql
+select user_id, sub_date, count(*) as log_time
+    (select
+        user_id, DATA_SUB(log_date, INTERVAL rank DAY) as sub_date
+    from 
+        (
+        select
+            user_id, log_date, ROW_NUMBER()over(partition by user_id) as rank
+        from 
+            (
+            select user_id, DATE_FORMAT(request_tm, "%Y-%m-%D") as log_date
+            from userlog
+            ) tmp1
+        ) tmp2
+    ) tmp3
+group by user_id, sub_date
+having log_times = 2
+
+    ```
     
