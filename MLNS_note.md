@@ -28,10 +28,10 @@ The idea may be finding some missing eadge.
 
 
 ## Concepts of Graph
-<img width="397" alt="image" src="https://user-images.githubusercontent.com/29950267/215040372-21e2b669-3505-4bad-ae37-447b94c636a3.png">
+<img width="420" alt="image" src="https://user-images.githubusercontent.com/29950267/215040372-21e2b669-3505-4bad-ae37-447b94c636a3.png">
 
 
-<img width="814" alt="image" src="https://user-images.githubusercontent.com/29950267/215040863-190d3987-5771-4c74-a598-eaf5673c9739.png">
+<img width="420" alt="image" src="https://user-images.githubusercontent.com/29950267/215040863-190d3987-5771-4c74-a598-eaf5673c9739.png">
 Undirect graph: The Adjacncy Matrix is symmetric.
 Directed graph: The Adjacncy Matrix is nonsymmetric.
 
@@ -64,9 +64,9 @@ Network Diameter measure how spread of the network
 
 
 
-<img width="769" alt="image" src="https://user-images.githubusercontent.com/29950267/215052148-845071b9-8df0-4745-88e4-41b1b0d2029a.png">
+<img width="420" alt="image" src="https://user-images.githubusercontent.com/29950267/215052148-845071b9-8df0-4745-88e4-41b1b0d2029a.png">
 We use the log-log to 
-<img width="798" alt="image" src="https://user-images.githubusercontent.com/29950267/215052364-5f0f2b8d-369a-4583-9ffb-b852a7d7d454.png">
+<img width="420" alt="image" src="https://user-images.githubusercontent.com/29950267/215052364-5f0f2b8d-369a-4583-9ffb-b852a7d7d454.png">
 看上去就是一个抛物线
 Let p(k) = fraction of nodes with degree k
 p(k) / ck�↵
