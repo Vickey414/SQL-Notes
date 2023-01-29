@@ -1,7 +1,7 @@
 # Decision Tree
  Definition: A decision tree is a binary tree that recursively segment the input space X（also called the feature space）along the coordinate directions 
 to create a set of K hyper-rectangles $R_k$ , k∈{1,...,K } as basic prediction units for ﬁtting constant values $\gamma_k$  within each of them.   
-                  $f(x)$ = $\displaystyle\sum_{k=1}^k$$\gamma_k$ $1_{x∈R_k}$.  
+                  $f(x)$ = $\displaystyle\sum_{k=1}^k$ $\gamma_k$ $1_{x∈R_k}$.  
 $\gamma_k$ is the corresponding predicted value or class for the dependent variable (called also output variable and denoted Y). And $\gamma_k$ is the decision tree parameter.
  ##### 决策树的性质
   * The set of K hyper-rectangles $R_k$ is determined by a set of K−1 chosen splits and their order during the recursive binary segmentation.  
@@ -15,11 +15,18 @@ $\gamma_k$ is the corresponding predicted value or class for the dependent varia
   * By minimizing a given risk function or impurity measure.
       R(f):=P(y$\neq$ f(x))
 
-## CART  
+##### CART  
 Definition: CART provides a partition of $R_2$ in classes by horizontal/vertical line segments.  
 
 
 ##### How  much  should  we  let  the  tree  grow?
   * Too big a tree may overﬁt the data
   * Too small a tree risk of not capturing their structure
-  * The optimal size is a hyper-parameter to calibrate on the data
+  * The optimal size is a hyper-parameter to calibrate on the data.  
+> 方法： 
+>> * The repetition is made until a stopping criterion is met. Examples of stopping criterion:
+>>> *  maximum depth
+>>> *  maximum number of leaves
+>>> *  minimum number of sample per leaf
+>> * Pruning: We make the tree grow to the maximum and then we remove the uninteresting nodes.
+>>> * 
