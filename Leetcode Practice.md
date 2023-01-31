@@ -118,7 +118,7 @@ group by u.user_id
 ```
 
 ## 1159. Market Analysis II
-Write an SQL query to find for each user whether the brand of the second item (by date) they sold is their favorite brand. If a user sold less than two items, report the answer for that user as no. It is guaranteed that no seller sold more than one item on a day.
+*Write an SQL query to find for each user whether the brand of the second item (by date) they sold is their favorite brand. If a user sold less than two items, report the answer for that user as no. It is guaranteed that no seller sold more than one item on a day.*
 <img width="640" alt="image" src="https://user-images.githubusercontent.com/29950267/215742952-2c8841ca-c14f-47a4-bc9f-0c7f3a6aebf3.png">
 <img width="640" alt="image" src="https://user-images.githubusercontent.com/29950267/215743101-dc637834-2441-4046-8bfa-15e414510631.png">
 
@@ -145,8 +145,27 @@ from
 Users u
 ```
 
+## 1082. Sales Analysis I
+* 在这里考察的是先创建临时表，用with，然后进行select，注意最后一句where不能直接用total_sales = max(total_sales)因为会有group报错.
+*Write an SQL query that reports the best seller by total sales price, If there is a tie, report them all*.  
+<img width="640" alt="image" src="https://user-images.githubusercontent.com/29950267/215746512-b3324e13-4972-48ec-b625-fd2c3ae94fa4.png">
+
+```sql
+with tmp as
+        (
+            select seller_id, sum(price) as total_sales
+            from 
+            Sales
+            group by seller_id
+        )
+select
+    seller_id
+from tmp
+where total_sales = (select max(total_sales) from tmp)
+```
+
 ## 1083. Sales Analysis II
-*Write an SQL query that reports the buyers who have bought S8 but not iPhone. Note that S8 and iPhone are products present in the Product table.*
+* Write an SQL query that reports the buyers who have bought S8 but not iPhone. Note that S8 and iPhone are products present in the Product table.*.  
 <img width="645" alt="image" src="https://user-images.githubusercontent.com/29950267/214878268-85ddbc4e-67a9-4cad-8962-935fda8fa749.png">
 
 #### Solution
@@ -161,6 +180,8 @@ from table1
     where buyer_id in (select buyer_id from table1 where product_name = "S8")
     and buyer_id not in (select buyer_id from table1 where product_name ="iPhone")
 ```
+
+
 
 
 ## 京东SQL面试题
