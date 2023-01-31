@@ -1,7 +1,7 @@
 ## 511. Game Play Analysis II
 
 *Write an SQL query to report the device that is first logged in for each player. Return the result table in any order.*
-<img width="509" alt="image" src="https://user-images.githubusercontent.com/29950267/214848609-1a4cbdb6-8025-447d-b273-8f198c507754.png">
+<img width="640" alt="image" src="https://user-images.githubusercontent.com/29950267/214848609-1a4cbdb6-8025-447d-b273-8f198c507754.png">
 #### Solution
 ```sql
 select a.player_id, b.device_id 
@@ -19,7 +19,7 @@ left join
 
 ## 512. Game Play Analysis III
 *Write an SQL query to report for each player and date, how many games played so far by the player. That is, the total number of games played by the player until that date. Check the example for clarity.*
-<img width="666" alt="image" src="https://user-images.githubusercontent.com/29950267/214850129-3b2eb935-f6f1-4b18-b4d7-f3944cb174a9.png">
+<img width="640" alt="image" src="https://user-images.githubusercontent.com/29950267/214850129-3b2eb935-f6f1-4b18-b4d7-f3944cb174a9.png">
 #### Solution
 ```sql
 select 
@@ -37,7 +37,7 @@ group by
 
 # 534. Game Play Analysis IV
 *Write an SQL query to report the fraction of players that logged in again on the day after the day they first logged in, rounded to 2 decimal places. In other words, you need to count the number of players that logged in for at least two consecutive days starting from their first login date, then divide that number by the total number of players.*
-<img width="659" alt="image" src="https://user-images.githubusercontent.com/29950267/214850041-c0a6d5e7-c3ea-475c-92bb-fdf5196bfc2e.png">
+<img width="640" alt="image" src="https://user-images.githubusercontent.com/29950267/214850041-c0a6d5e7-c3ea-475c-92bb-fdf5196bfc2e.png">
 
 ## Solution
 ```sql
@@ -58,7 +58,7 @@ and datediff(b.event_date,a.first_login)
 ## 550. Game Play Analysis V
 *The install date of a player is the first login day of that player.We define day one retention of some date x to be the number of players whose install date is x and they logged back in on the day right after x, divided by the number of players whose install date is x, rounded to 2 decimal places.
 Write an SQL query to report for each install date, the number of players that installed the game on that day, and the day one retention. Return the result table in any order.*
-<img width="654" alt="image" src="https://user-images.githubusercontent.com/29950267/214849970-b6bb07db-b082-4b52-aa8a-c0be0aca7fc0.png">
+<img width="640" alt="image" src="https://user-images.githubusercontent.com/29950267/214849970-b6bb07db-b082-4b52-aa8a-c0be0aca7fc0.png">
 #### Solution
 ```sql
 select 
@@ -84,7 +84,7 @@ from
 
 ## 571. Find Median Given Frequency of Numbers
 *The median is the value separating the higher half from the lower half of a data sample.Write an SQL query to report the median of all the numbers in the database after decompressing the Numbers table. Round the median to one decimal point.*
-<img width="651" alt="image" src="https://user-images.githubusercontent.com/29950267/214853100-b8141f35-2942-4d95-a612-6c642f1b15ce.png">
+<img width="640" alt="image" src="https://user-images.githubusercontent.com/29950267/214853100-b8141f35-2942-4d95-a612-6c642f1b15ce.png">
 #### Solution
 ```sql
 select 
@@ -101,7 +101,7 @@ from
 
 ## 1158. Market Analysis I
 *Write an SQL query that reports the best seller by total sales price, If there is a tie, report them all.Return the result table in any order.*
-<img width="649" alt="image" src="https://user-images.githubusercontent.com/29950267/214867270-e6b368ba-2ae4-4568-a290-dcc90ae175f8.png">
+<img width="640" alt="image" src="https://user-images.githubusercontent.com/29950267/214867270-e6b368ba-2ae4-4568-a290-dcc90ae175f8.png">
 
 #### Solution
 ```sql
@@ -118,7 +118,32 @@ group by u.user_id
 ```
 
 ## 1159. Market Analysis II
+Write an SQL query to find for each user whether the brand of the second item (by date) they sold is their favorite brand. If a user sold less than two items, report the answer for that user as no. It is guaranteed that no seller sold more than one item on a day.
+<img width="640" alt="image" src="https://user-images.githubusercontent.com/29950267/215742952-2c8841ca-c14f-47a4-bc9f-0c7f3a6aebf3.png">
+<img width="640" alt="image" src="https://user-images.githubusercontent.com/29950267/215743101-dc637834-2441-4046-8bfa-15e414510631.png">
 
+```sql
+    select user_id as seller_id, 
+    (case when 
+        # 这个favorite_brand是users表中的favorite_brand,判断的条件就是favorite_brand与select出来的item_brand是否相等
+        u.favorite_brand = (
+            select i.item_brand
+            from Orders o
+            left join Items i
+            on o.item_id = i.item_id # 到这一步之前，先是把orders这个表新增加一列item_brand
+            where o.seller_id = u.user_id 
+            # 然后结合外层，加了item_brand之后的orders表和u的表进行join，其中用o.seller_id和u.user_id匹配，
+            # 这道题的初衷是看商户sell的第二个商品是否是他们最喜欢的brand
+            # 所以orders表中的seller_id和users表中的user_id是同一个，均表示商户的id。
+            # 然后这里会得到这样的表，users表中有1，orders中没有1，还是会显示1，只不过item_brand为空
+            # users表中有1个2，orders中有两个2，则生成的表会有两行对应2，对应的item_brand就是商户sell的两个item，同理3和4也是
+            order by order_date 
+            # 这里会根据user_id进行group之后再order
+            limit 1 offset 1) then "yes" else "no" end) as 2nd_item_fav_brand
+            # offset跳过第一个，limit限制取1个，也就是取了第二个
+from 
+Users u
+```
 
 ## 1083. Sales Analysis II
 *Write an SQL query that reports the buyers who have bought S8 but not iPhone. Note that S8 and iPhone are products present in the Product table.*
