@@ -166,7 +166,7 @@ where total_sales = (select max(total_sales) from tmp)
 
 ## 1083. Sales Analysis II
 * Write an SQL query that reports the buyers who have bought S8 but not iPhone. Note that S8 and iPhone are products present in the Product table.*.  
-<img width="645" alt="image" src="https://user-images.githubusercontent.com/29950267/214878268-85ddbc4e-67a9-4cad-8962-935fda8fa749.png">
+<img width="640" alt="image" src="https://user-images.githubusercontent.com/29950267/214878268-85ddbc4e-67a9-4cad-8962-935fda8fa749.png">
 
 #### Solution
 ```sql
@@ -183,7 +183,7 @@ from table1
 ## 1084. Sales Analysis III
 * Write an SQL query that reports the products that were only sold in the first quarter of 2019. That is, between 2019-01-01 and 2019-03-31 inclusive.
 * We only find out product sold only in the first quarter
-<img width="676" alt="image" src="https://user-images.githubusercontent.com/29950267/216078796-75b1a787-bbb0-4621-aadf-1b9547da9c6c.png">
+<img width="640" alt="image" src="https://user-images.githubusercontent.com/29950267/216078796-75b1a787-bbb0-4621-aadf-1b9547da9c6c.png">
 ```sql
 select product_id,product_name
 from 
@@ -199,10 +199,10 @@ where product_id in
     )
 ```
 
- #### 1070. Product Sales Analysis III  
+ ## 1070. Product Sales Analysis III  
  * Write an SQL query that selects the product id, year, quantity, and price for the first year of every product sold.
  * So it is possible some product are sold more than one time in the first year
-<img width="597" alt="image" src="https://user-images.githubusercontent.com/29950267/216084275-55f10639-fa5d-4ec7-a550-9a47a6535005.png">
+<img width="640" alt="image" src="https://user-images.githubusercontent.com/29950267/216084275-55f10639-fa5d-4ec7-a550-9a47a6535005.png">
 ```sql
     SELECT product_id, year AS first_year, quantity, price
     FROM Sales
@@ -213,9 +213,9 @@ where product_id in
             GROUP BY product_id
           )
 ```
-#### 2324. Product Sales Analysis IV
+## 2324. Product Sales Analysis IV
 * Write an SQL query that reports for each user the product id on which the user spent the most money. In case the same user spent the most money on two or more products, report all of them.
-<img width="598" alt="image" src="https://user-images.githubusercontent.com/29950267/216098539-36466d1f-d0f6-4318-abe8-3c838791f899.png">
+<img width="640" alt="image" src="https://user-images.githubusercontent.com/29950267/216098539-36466d1f-d0f6-4318-abe8-3c838791f899.png">
 
 ```sql
  with tmp1 as
@@ -240,9 +240,9 @@ where rk = 1
 
 ```
 
-#### 1501. Countries You Can Safely Invest In
+## 1501. Countries You Can Safely Invest In
 * A telecommunications company wants to invest in new countries. The company intends to invest in the countries where the average call duration of the calls in this country is strictly greater than the global average call duration.
-<img width="475" alt="image" src="https://user-images.githubusercontent.com/29950267/216108526-facbe918-0f51-46d8-a01a-1345d0d6122e.png">
+<img width="640" alt="image" src="https://user-images.githubusercontent.com/29950267/216108526-facbe918-0f51-46d8-a01a-1345d0d6122e.png">
 
 ```sql
     with tmp as
