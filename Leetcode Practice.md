@@ -180,8 +180,24 @@ from table1
     where buyer_id in (select buyer_id from table1 where product_name = "S8")
     and buyer_id not in (select buyer_id from table1 where product_name ="iPhone")
 ```
-
-
+## 1084. Sales Analysis III
+Write an SQL query that reports the products that were only sold in the first quarter of 2019. That is, between 2019-01-01 and 2019-03-31 inclusive.
+* We only find out product sold only in the first quarter
+<img width="676" alt="image" src="https://user-images.githubusercontent.com/29950267/216078796-75b1a787-bbb0-4621-aadf-1b9547da9c6c.png">
+```sql
+select product_id,product_name
+from 
+Product
+where product_id in
+    (
+        select product_id
+        from Sales s
+        group by product_id
+        having 
+          sum(sale_date < date('2019-01-01 ')) = 0
+          and sum(sale_date > date('2019-03-31')) = 0
+    )
+```
 
 
 ## 京东SQL面试题
