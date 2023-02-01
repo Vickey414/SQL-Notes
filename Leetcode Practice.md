@@ -56,8 +56,8 @@ and datediff(b.event_date,a.first_login)
 ```
 
 ## 550. Game Play Analysis V
-*The install date of a player is the first login day of that player.We define day one retention of some date x to be the number of players whose install date is x and they logged back in on the day right after x, divided by the number of players whose install date is x, rounded to 2 decimal places.
-Write an SQL query to report for each install date, the number of players that installed the game on that day, and the day one retention. Return the result table in any order.*
+* The install date of a player is the first login day of that player.We define day one retention of some date x to be the number of players whose install date is x and they logged back in on the day right after x, divided by the number of players whose install date is x, rounded to 2 decimal places.
+Write an SQL query to report for each install date, the number of players that installed the game on that day, and the day one retention. Return the result table in any order.  
 <img width="640" alt="image" src="https://user-images.githubusercontent.com/29950267/214849970-b6bb07db-b082-4b52-aa8a-c0be0aca7fc0.png">
 #### Solution
 ```sql
