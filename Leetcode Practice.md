@@ -268,6 +268,68 @@ where
     tmp1.duration_avg > (select avg(duration) from tmp)
 ```
 
+#### 1164. Product Price at a Given Date
+* Write an SQL query to find the prices of all products on 2019-08-16. Assume the price of all products before any change is 10.
+<img width="640" alt="image" src="https://user-images.githubusercontent.com/29950267/216329688-43bc862c-8a03-4f6b-8580-835c96ff7fa8.png">
+
+```sql
+select 
+    distinct(product_id), 
+    10 as price
+from Products
+group by product_id
+having MIN(change_date) > '2019-08-16'
+union all
+    select product_id, new_price as price
+    from Products
+    where 
+        (product_id, change_date) in  
+            (
+                select 
+                    product_id,
+                    max(change_date)
+                from Products
+                where change_date <= '2019-08-16'
+                group by product_id
+            )
+order by product_id
+```
+
+#### 1174. Immediate Food Delivery II
+* If the customer's preferred delivery date is the same as the order date, then the order is called immediate; otherwise, it is called scheduled.
+The first order of a customer is the order with the earliest order date that the customer made. It is guaranteed that a customer has precisely one first order. Write an SQL query to find the percentage of immediate orders in the first orders of all customers, rounded to 2 decimal places.
+
+<img width="640" alt="image" src="https://user-images.githubusercontent.com/29950267/216334254-5e9f415f-b952-4b8e-874b-9f00a8efc6a8.png">
+
+```sql
+# Write your MySQL query statement below
+select 
+    round(100*sum(order_date = customer_pref_delivery_date)/count(customer_id),2)
+    as immediate_percentage
+from 
+(
+    select customer_id, order_date,customer_pref_delivery_date
+    from 
+    Delivery 
+    where (customer_id, order_date) in 
+        (
+            select customer_id, min(order_date)
+            from Delivery
+            group by customer_id
+        )
+)tmp
+
+```
+
+#### 1308. Running Total for Different Genders
+* Write an SQL query to find the total score for each gender on each day.
+* 这里需要用到累加，用window函数，sum函数是对分数进行累加，根据日期排序后（order by date）对F和M进行移动的价格
+<img width="640" alt="image" src="https://user-images.githubusercontent.com/29950267/216337390-c9a36e92-1292-49b1-a07c-65dbb1f88c15.png">
+```sql
+    select gender, day, 
+    sum(score_points) over(partition by gender order by day asc) as total
+    from Scores
+```
 
 
 ## 京东SQL面试题
