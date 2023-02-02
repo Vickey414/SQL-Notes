@@ -332,6 +332,42 @@ from
 ```
 
 
+
+#### 1321. Restaurant Growth
+* You are the restaurant owner and you want to analyze a possible expansion (there will be at least one customer every day). Write an SQL query to compute the moving average of how much the customer paid in a seven days window (i.e., current day + 6 days before). average_amount should be rounded to two decimal places.Return result table ordered by visited_on in ascending order.
+<img width="640" alt="image" src="https://user-images.githubusercontent.com/29950267/216463316-6c42c687-31a3-4d85-b63c-1086916d6b75.png">
+
+```sql
+    with cte as
+(
+    select 
+    visited_on, 
+    sum(amount) over(order by visited_on) as cum_amount,
+    DATE_SUB(visited_on, INTERVAL 7 DAY) as seven_days_ago
+    from 
+    customer
+)
+select 
+    distinct(a.visited_on), 
+    (case when 
+        b.cum_amount is null then a.cum_amount
+        else (a.cum_amount - b.cum_amount) end
+    ) as amount,
+    (case when 
+        b.cum_amount is null then round(a.cum_amount/7,2)
+        else round((a.cum_amount - b.cum_amount)/7,2) end
+     ) as average_amount
+from 
+cte a
+left join
+(
+    select visited_on, cum_amount
+    from cte
+) b
+on a.seven_days_ago = b.visited_on
+where a.visited_on - (select min(visited_on) from customer) >= 6
+```
+
 ## 京东SQL面试题
 #### 1. 考察日期函数
 ![image](https://user-images.githubusercontent.com/29950267/215034371-f29632b6-65ac-4e82-b88e-9ba679c10354.png)
