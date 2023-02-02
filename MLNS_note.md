@@ -1,4 +1,5 @@
-### L1 Ways to analyze network data
+## Preface
+### Ways to analyze network data
 * Identify important/influential nodes
   * Centrality criteria
   * Example: viral marketing
@@ -34,15 +35,14 @@
 ## Concepts of Graph
 
 <img width="420" alt="image" src="https://user-images.githubusercontent.com/29950267/215040372-21e2b669-3505-4bad-ae37-447b94c636a3.png">
-
+G = （V,E） n =|V| # of nodes/vertices, m = |E| # of edges
 
 <img width="420" alt="image" src="https://user-images.githubusercontent.com/29950267/215040863-190d3987-5771-4c74-a598-eaf5673c9739.png">
 Undirect graph: The Adjacncy Matrix is symmetric.
 Directed graph: The Adjacncy Matrix is nonsymmetric.
 
-Complete graph: A graph G = (V, E) is called complete Kn if every pair of nodes is connected by an edge
-$$
 
+Complete graph: A graph G = (V, E) is called complete Kn if every pair of nodes is connected by an edge
 
 ### Graph traversal algorithms
 
