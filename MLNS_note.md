@@ -33,13 +33,20 @@
 
 
 ## Concepts of Graph
-
+#### Nodes and Edges
 <img width="420" alt="image" src="https://user-images.githubusercontent.com/29950267/215040372-21e2b669-3505-4bad-ae37-447b94c636a3.png">
-G = （V,E） n =|V| # of nodes/vertices, m = |E| # of edges
+G = （V,E） n =|V| # of nodes/vertices, m = |E| # of edges.  
+
+#### Direct and Undirect
+<img width="640" alt="image" src="https://user-images.githubusercontent.com/29950267/216470499-9df3320a-805d-4829-8376-5cfefe45d147.png">
+  
+  Node degree $k_i$ : the number of edges adjacent to node i
+* Undirect graph: The Adjacncy Matrix is symmetric. ex: collaboration and friendship on facebook
+* Directed graph: The Adjacncy Matrix is nonsymmetric. ex: phone call and follow on facebook
+<img width="640" alt="image" src="https://user-images.githubusercontent.com/29950267/216471309-1f2371ea-d380-4ff5-aa2b-b63798170462.png">
+
 
 <img width="420" alt="image" src="https://user-images.githubusercontent.com/29950267/215040863-190d3987-5771-4c74-a598-eaf5673c9739.png">
-Undirect graph: The Adjacncy Matrix is symmetric.
-Directed graph: The Adjacncy Matrix is nonsymmetric.
 
 
 Complete graph: A graph G = (V, E) is called complete Kn if every pair of nodes is connected by an edge
