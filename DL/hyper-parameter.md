@@ -10,7 +10,7 @@
 9. 不要过早的early-stopping。  
 
 
-参考文章：https://blog.csdn.net/ytusdc/article/details/122321907
+参考文章：https://blog.csdn.net/ytusdc/article/details/122321907  
 Pytorch训练模型损失Loss为Nan或者无穷大（INF）原因
 1. 比如求损失函数会用到log(x)，如果 x 接近0，那么结果就是 inf。
 * 梯度消失：是指导数值特别小，导致其连乘项接近无穷小，可能是由输入数据的值域太小（导致权重 W 的导数特别小）或者是神经网络层输出数据落在在激活函数的饱和区（导致激活函数的导数特别小）.  
