@@ -1,3 +1,4 @@
+
 1. 先overfit再tradeoff，先保证模型capacity能够过拟合，再尝试使用正则化的方法减小模型。  
 2. learning rate是非常重要的参数，一般nlp bert类模型在$e^{-5}$级别附近，cv类模型在$e^{-3}$级别附近   
 3. batch size，在学习领域一般越大越好，否则模型可能不收敛。  
@@ -9,7 +10,7 @@
 9. 不要过早的early-stopping。  
 
 
-
+参考文章：https://blog.csdn.net/ytusdc/article/details/122321907
 Pytorch训练模型损失Loss为Nan或者无穷大（INF）原因
 1. 比如求损失函数会用到log(x)，如果 x 接近0，那么结果就是 inf。
 * 梯度消失：是指导数值特别小，导致其连乘项接近无穷小，可能是由输入数据的值域太小（导致权重 W 的导数特别小）或者是神经网络层输出数据落在在激活函数的饱和区（导致激活函数的导数特别小）.  
