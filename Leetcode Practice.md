@@ -202,7 +202,8 @@ where product_id in
  ## 1070. Product Sales Analysis III  
  * Write an SQL query that selects the product id, year, quantity, and price for the first year of every product sold.
  * So it is possible some product are sold more than one time in the first year
-<img width="640" alt="image" src="https://user-images.githubusercontent.com/29950267/216084275-55f10639-fa5d-4ec7-a550-9a47a6535005.png">
+<img width="640" alt="image" src="https://user-images.githubusercontent.com/29950267/216084275-55f10639-fa5d-4ec7-a550-9a47a6535005.png">.  
+
 ```sql
     SELECT product_id, year AS first_year, quantity, price
     FROM Sales
@@ -213,6 +214,7 @@ where product_id in
             GROUP BY product_id
           )
 ```
+
 ## 2324. Product Sales Analysis IV
 * Write an SQL query that reports for each user the product id on which the user spent the most money. In case the same user spent the most money on two or more products, report all of them.
 <img width="640" alt="image" src="https://user-images.githubusercontent.com/29950267/216098539-36466d1f-d0f6-4318-abe8-3c838791f899.png">
@@ -324,7 +326,8 @@ from
 #### 1308. Running Total for Different Genders
 * Write an SQL query to find the total score for each gender on each day.
 * 这里需要用到累加，用window函数，sum函数是对分数进行累加，根据日期排序后（order by date）对F和M进行移动的价格
-<img width="640" alt="image" src="https://user-images.githubusercontent.com/29950267/216337390-c9a36e92-1292-49b1-a07c-65dbb1f88c15.png">
+<img width="640" alt="image" src="https://user-images.githubusercontent.com/29950267/216337390-c9a36e92-1292-49b1-a07c-65dbb1f88c15.png">.  
+
 ```sql
     select gender, day, 
     sum(score_points) over(partition by gender order by day asc) as total
