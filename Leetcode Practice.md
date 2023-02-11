@@ -59,7 +59,7 @@ and datediff(b.event_date,a.first_login)
 * The install date of a player is the first login day of that player.We define day one retention of some date x to be the number of players whose install date is x and they logged back in on the day right after x, divided by the number of players whose install date is x, rounded to 2 decimal places.
 Write an SQL query to report for each install date, the number of players that installed the game on that day, and the day one retention. Return the result table in any order.  
 <img width="640" alt="image" src="https://user-images.githubusercontent.com/29950267/214849970-b6bb07db-b082-4b52-aa8a-c0be0aca7fc0.png">
-#### Solution.  
+#### Solution     
 
 ```sql
 select 
@@ -184,7 +184,8 @@ from table1
 ## 1084. Sales Analysis III
 * Write an SQL query that reports the products that were only sold in the first quarter of 2019. That is, between 2019-01-01 and 2019-03-31 inclusive.
 * We only find out product sold only in the first quarter
-<img width="640" alt="image" src="https://user-images.githubusercontent.com/29950267/216078796-75b1a787-bbb0-4621-aadf-1b9547da9c6c.png">
+<img width="640" alt="image" src="https://user-images.githubusercontent.com/29950267/216078796-75b1a787-bbb0-4621-aadf-1b9547da9c6c.png">.  
+
 ```sql
 select product_id,product_name
 from 
