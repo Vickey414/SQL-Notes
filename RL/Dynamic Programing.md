@@ -28,13 +28,15 @@ Deterministic Value Iteration
 Formula：v*(s) <- max
 If we know the solution of the subproblems v*(s')
 Intuition: start with final rewards and work backwards
+<img width="640" alt="image" src="https://user-images.githubusercontent.com/29950267/222737101-97a40836-a743-4966-8597-898e36fb176d.png">
 
 
+Asynchronous Dynamic Programming(Asynchronous updates)
+前面提及到的都是synchronous updates。
+  - all states are updated in parallel
+Asynchronous: updates states individually, in any order 
+Pron: 
+ - Can significantly reduce computation
+ - Guaranteed to converge if all states continue to be selected
+ - For each selected state, apply the appropriate update 
 
-Asynchronous updates
-
-
-
-
-
-Policy Evaluation
