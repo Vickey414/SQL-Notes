@@ -17,6 +17,17 @@ We have the current state, given a policy we want to calculate the value functio
 最后能达到这个目标对应的grid每个的value得到的value function.  
 When k become infinite, the grids value function will converge to some point and the come to a static stage.
 
+Policy Iteration
+<img width="640" alt="image" src="https://user-images.githubusercontent.com/29950267/222733076-3ce5b7c8-44ff-4b03-b940-dce0dee993ba.png">
+
+
+Value Iteration: To find the optimal policy
+Deterministic Value Iteration
+假设我知道了达到下个阶段最佳状态的最大价值方程
+
+Formula：v*(s) <- max
+If we know the solution of the subproblems v*(s')
+Intuition: start with final rewards and work backwards
 
 
 
