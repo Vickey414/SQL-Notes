@@ -18,7 +18,7 @@ ML tasks will need to extract different graph features
 
 * Random walk-based models
 <img width="640" alt="image" src="https://user-images.githubusercontent.com/29950267/222669172-68875e1d-df9e-47b1-9e02-a3ba69013e74.png">
-$\Z_{u}Z_{v}$ = probability that v and u co-occur on a random-walk over the network Pr(u|v).
+$Z_{u} Z_{v}$ = probability that v and u co-occur on a random-walk over the network Pr(u|v).
   To take the transition matrix
 
 
