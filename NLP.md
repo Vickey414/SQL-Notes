@@ -19,10 +19,10 @@ By changing the weight of the filter our model is able to learn how to identify 
 <img width="640" alt="image" src="https://user-images.githubusercontent.com/29950267/223849165-413cb043-e0d0-4dfa-92bd-c98c88a2a25b.png">  
 <img width="640" alt="image" src="https://user-images.githubusercontent.com/29950267/224024465-98286f25-32ca-469b-bfa4-1b08d012849a.png">  
 * Convolutional layers: local connectivity  
-    ** For a neuron in the hidden layer:
-        - take the inputs from patch
-        - compute weighted sum
-        - apply bias
+    ** For a neuron in the hidden layer:  
+        - take the inputs from patch  
+        - compute weighted sum  
+        - apply bias  
 ** Within a single Convolutional layer now we can have multiple filters. So becomes volumn of images
 ** Layer dimension: h*w*d where h and w are spatial dimensions, d(depth) = number of filyers
 ** Stride: Filter step size
@@ -65,7 +65,7 @@ And the output at the particular time of t depends both on the input and the pas
 <img width="380" alt="image" src="https://user-images.githubusercontent.com/29950267/224029940-4a82511e-2030-45f6-9c3a-add342e3b286.png">
 
 
-* Not all problems have fixed-length input and output   
+* Not all problems have fixed-length input and output    
 * Problems with sequences of variable length.  
   ** Speech recognition, machine translation, etc.  
 * RNNs can store information about past inputs for a time that is not fixed a priori.  
@@ -84,14 +84,14 @@ And the output at the particular time of t depends both on the input and the pas
 # Tasks solved in NLP
 ##### Discriminative tasks:判别式任务
    * Classiﬁcation:
-    - Sentiment analysis
-    - Categorisation into topics
-    - Spam detection
-    - Intent recognition
-    - Fake news detection
-  * Question answering
-  * Information extraction
-  * Grammar correction
+    - Sentiment analysis  
+    - Categorisation into topics  
+    - Spam detection  
+    - Intent recognition  
+    - Fake news detection  
+  * Question answering  
+  * Information extraction  
+  * Grammar correction  
 
 ##### Generative tasks and seq2seq
 * Machine translation
