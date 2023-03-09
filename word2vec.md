@@ -12,12 +12,15 @@ Linear model: use softmax
 #### Feature Space  
 <img width="640" alt="image" src="https://user-images.githubusercontent.com/29950267/224037002-58f50672-6418-45b0-8163-363bf1b54395.png">
 How to do:  
-1. Filtering stop-words:  
+1. Filtering stop-words:    
+
 ```python
 from nltk.corpus import stopwords
 ```
+
 2. Word normalization:  
-• Lemmatization: determining the lemma of a word (slower but more precise)就是把同语义的词变成一个，如单复数，时态.  
+• Lemmatization: determining the lemma of a word (slower but more precise)就是把同语义的词变成一个，如单复数，时态.   
+ 
 ```python
 from nltk.stem import WordNetLemmatizer
 lemmatizer = WordNetLemmatizer()
