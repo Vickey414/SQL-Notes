@@ -58,7 +58,7 @@ Cons:
 ### Word2Vector
 <img width="640" alt="image" src="https://user-images.githubusercontent.com/29950267/224047271-d16fdb71-562c-4e67-a2df-9f1c318fe9a5.png"> 
 Maximize these probabilities makecloser vectors of words appearing in same contexts.  
-* To train on large text corpora with T words:
-$-\displaystyle\sum_{t=1}^T \displaystyle\sum_{j=-m...m,j=0}^T logP_{U,V}(w_{t+j}|w_t)$ -> min_{U,V}
+* To train on large text corpora with T words:  
+$- \displaystyle\sum_{t=1}^T$ $\displaystyle\sum_{j=-m...m,j=0}^T$ $logP_{U,V}(w_{t+j}|w_t)$ -> min_{U,V}$
 
  
