@@ -14,7 +14,7 @@ The patchy operation is called "convolution".
 
 Feature Extraction and Convolution
 By changing the weight of the filter our model is able to learn how to identify different types of feature.  
-<img width="867" alt="image" src="https://user-images.githubusercontent.com/29950267/223849165-413cb043-e0d0-4dfa-92bd-c98c88a2a25b.png">
+<img width="640" alt="image" src="https://user-images.githubusercontent.com/29950267/223849165-413cb043-e0d0-4dfa-92bd-c98c88a2a25b.png">
 
 
 
