@@ -13,12 +13,12 @@ To feed our input and connect it to patches of some weights so instead of feedin
 The patchy operation is called "convolution".  
 
 Feature Extraction and Convolution.  
-<img width="640" alt="image" src="https://user-images.githubusercontent.com/29950267/224024265-dea27a94-f9cc-41fd-97c4-1b5f16c0107d.png">
+<img width="640" alt="image" src="https://user-images.githubusercontent.com/29950267/224024265-dea27a94-f9cc-41fd-97c4-1b5f16c0107d.png">  
 
-By changing the weight of the filter our model is able to learn how to identify different types of feature.eg. edge detection 
-<img width="640" alt="image" src="https://user-images.githubusercontent.com/29950267/223849165-413cb043-e0d0-4dfa-92bd-c98c88a2a25b.png">
-<img width="640" alt="image" src="https://user-images.githubusercontent.com/29950267/224024465-98286f25-32ca-469b-bfa4-1b08d012849a.png">
-* Convolutional layers: local connectivity
+By changing the weight of the filter our model is able to learn how to identify different types of feature.eg. edge detection   
+<img width="640" alt="image" src="https://user-images.githubusercontent.com/29950267/223849165-413cb043-e0d0-4dfa-92bd-c98c88a2a25b.png">  
+<img width="640" alt="image" src="https://user-images.githubusercontent.com/29950267/224024465-98286f25-32ca-469b-bfa4-1b08d012849a.png">  
+* Convolutional layers: local connectivity  
     ** For a neuron in the hidden layer:
         - take the inputs from patch
         - compute weighted sum
@@ -27,17 +27,17 @@ By changing the weight of the filter our model is able to learn how to identify 
 ** Layer dimension: h*w*d where h and w are spatial dimensions, d(depth) = number of filyers
 ** Stride: Filter step size
 ** Receptive field: Locations in input image that a node is path connect to.  
-<img width="590" alt="image" src="https://user-images.githubusercontent.com/29950267/224027375-56bc3d00-aae5-4daf-8c71-12a1396dd45e.png">
+<img width="590" alt="image" src="https://user-images.githubusercontent.com/29950267/224027375-56bc3d00-aae5-4daf-8c71-12a1396dd45e.png">  
 
 * Non-linearity
-<img width="640" alt="image" src="https://user-images.githubusercontent.com/29950267/224027533-152a1f06-3965-4195-b9d2-ff79f2e3e4d0.png">
-<img width="380" alt="image" src="https://user-images.githubusercontent.com/29950267/224027649-2f94bf5c-fced-428e-b21d-32859a30a197.png">
+<img width="640" alt="image" src="https://user-images.githubusercontent.com/29950267/224027533-152a1f06-3965-4195-b9d2-ff79f2e3e4d0.png">  
+<img width="380" alt="image" src="https://user-images.githubusercontent.com/29950267/224027649-2f94bf5c-fced-428e-b21d-32859a30a197.png">  
 Relu: serve as a thredhold - when an input image is less than zero, nothing get passed through.  
 
 * Pooling: down scale our features our filters are going to attend to a larger region of the input space.  
     - To reduce the dimensionality and make the model scalable in practice while still preserve spatial invariance and structure.
     - 比如maxpooling：就是取每个filter中最大的数值
-<img width="1044" alt="image" src="https://user-images.githubusercontent.com/29950267/224028951-210ea854-0f56-4b72-a04f-597b03190643.png">
+<img width="1044" alt="image" src="https://user-images.githubusercontent.com/29950267/224028951-210ea854-0f56-4b72-a04f-597b03190643.png">  
 
 
 
