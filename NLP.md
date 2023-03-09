@@ -110,7 +110,3 @@ And the output at the particular time of t depends both on the input and the pas
   * Code generation
   * Automatic bug ﬁxing
 
-# Bag-of-words and linear models
-
-
-# word2vec
