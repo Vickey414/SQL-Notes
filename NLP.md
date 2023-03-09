@@ -47,13 +47,13 @@ Relu: serve as a thredhold - when an input image is less than zero, nothing get 
 以前提到的神经网络只能取单个neuron并处理一个个的输入，前一个输入和后一个输入是完全没有关系的。但是，某些任务需要能够更好的处理序列的信息，即前面的输入和后面的输入是有关联的情况。  
 
 <img width="325" alt="image" src="https://user-images.githubusercontent.com/29950267/224029660-839952fa-9b30-4efe-a692-d95baf3e36aa.png">
-Data Sequence Model
-Sequence model的情况和例子：
-第一种，不是sequence
-第二种：input is sequential
-第三种：Output is sequential
+Data Sequence Model  
+Sequence model的情况和例子：  
+第一种，不是sequence  
+第二种：input is sequential  
+第三种：Output is sequential  
 
-Neurons with recurrence 循环神经网络
+Neurons with recurrence 循环神经网络  
 At the beginning(就是中间层没有关联的时候)， we treat the individual time steps as isolated time steps. We don’t yet have a notion of the relationship between time step zero to time step1.  
 Our output vector at a particular time step is just going to be the input at that time step
 We have this transformation yet but this is inherently sequential data and it’s probably for the sequence for some important reason and still no interdependence here.  
