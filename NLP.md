@@ -3,7 +3,7 @@ Fully connected Neural Network:
 <img width="660" alt="image" src="https://user-images.githubusercontent.com/29950267/223809542-76b20c42-74f2-42bb-ae48-a5a067733070.png">
 
 Implication in Image:  
-<img width="640" alt="image" src="https://user-images.githubusercontent.com/29950267/223810136-c3f9cfbd-2a87-4498-bd58-311ea9f29876.png">
+<img width="640" alt="image" src="https://user-images.githubusercontent.com/29950267/223810136-c3f9cfbd-2a87-4498-bd58-311ea9f29876.png">  
 We flattern our 2D image, the spatial structure in our image previously pixels that were too closer to each other in the two-dimensional image now may be far from each other in the one-dimensional flattern vector.  
 
 How to no ruin the spatial structure?  
