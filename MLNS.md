@@ -31,18 +31,19 @@ The normalization step over all nodes from the softmax function impacts complexi
 Here we use negative sampling -  To solve the computational issue
 <img width="640" alt="image" src="https://user-images.githubusercontent.com/29950267/222674615-6dc11a73-cc85-4c67-a015-b0ee7effc368.png">
 
-- How should we perform random walk
-node2vec: Biased Random Walks
+- How should we perform random walk  
+node2vec: Biased Random Walks  
 <img width="640" alt="image" src="https://user-images.githubusercontent.com/29950267/222675804-a20bbffd-28ec-4a60-a0a3-704f8cd1ae61.png">
-BFS view: Local community
-DFS view: Global neighborhood
-Those searching strategies can capture two properties of social networks that lead to different concepts of similarity Homophily(BFS) and structural equivalence(DFS)
-u and $S_6$: the same degree, identify as the same role
+BFS view: Local community 
+DFS view: Global neighborhood  
+Those searching strategies can capture two properties of social networks that lead to different concepts of similarity Homophily(BFS) and structural equivalence(DFS).  
+u and $S_6$: the same degree, identify as the same role.  
 
-Biased Random Walk
+Biased Random Walk  
 <img width="640" alt="image" src="https://user-images.githubusercontent.com/29950267/222677228-0ccabcf1-07e4-48ff-83ac-1b16484d8805.png">
 
 
+Line Algorithm  
 
 
 
