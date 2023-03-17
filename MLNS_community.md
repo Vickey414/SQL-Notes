@@ -49,7 +49,7 @@ Spectrum and connectivity
 – If L has n zero eigenvalues, G has n connected components  
 
 ### k-Way Spectral Clustering  
-Step:  
+Step:   
 <img width="640" alt="image" src="https://user-images.githubusercontent.com/29950267/225855663-61ebb368-2de3-45ae-a4b3-8f950cc4ae49.png">  
 
 How to select k  
@@ -69,7 +69,40 @@ How to select k
 这是一个切分comminity中不同clusters的方法
 
 
+### How to Evaluate the Quality of Communities
+• Typically, two criteria
+– Internal connectivity (intra-community edges) 
+– External connectivity (inter-community edges)
+• Q: Is there any other way to distinguish groups of nodes with good 
+community structure?
+• Random graphs are not expected to present inherent community 
+structure
+• Idea: Compare the number of edges that lie within a community to 
+the expected one in case of random graphs with the same degree 
+distribution
+– Modularity measure
 
 
+#### Modularity
+<img width="640" alt="image" src="https://user-images.githubusercontent.com/29950267/225858172-0a9df221-aa57-4ad8-88c1-bde5742a99cf.png">
 
+<img width="640" alt="image" src="https://user-images.githubusercontent.com/29950267/225858242-a2827f12-4f54-4ed6-98ce-fbc128af7e55.png">
+
+Larger modularity Q indicates better communities (more than random intra-cluster density)
+  – The community structure is better if the number of internal edges exceed the expected number
+  – Q in the range of 0.3 - 0.7 means significant community structure
+* Modularity value is always -1 < Q < 1
+* It can also take negative values
+  – E.g., if each node is a community itself
+  – No partitions with positive modularity à No community structure
+  – Partitions with large negative modularity à Existence of subgraphs with small internal number of edges and large number of inter-community edges
+
+* Modularity maximization problem
+  – Computational difficult problem [Brandes et al. ‘06] 
+  – Approximation techniques and heuristics
+
+##### Spectral Optimization for Modularity maximization
+• Idea: Spectral techniques for modularity optimization 
+– Directly optimize modularity
+• Goal: Assign the nodes into two communities, X and Y
 
