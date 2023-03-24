@@ -34,11 +34,11 @@ Assumption: Once you heal, you can never get infected again.
 <img width="640" alt="image" src="https://user-images.githubusercontent.com/29950267/227461503-2b7d016e-84ca-4a99-bda0-ae99aecbcdc3.png">
 
 • epidemic thredhold: 在这个thredhold以上或者以下去定义infection的情况
-<img width="640" alt="image" src="https://user-images.githubusercontent.com/29950267/227461907-99a5ca50-d312-462b-a1bb-746733270a35.png">
+<img width="640" alt="image" src="https://user-images.githubusercontent.com/29950267/227461907-99a5ca50-d312-462b-a1bb-746733270a35.png">   
 Find a condition that connects the properties of the virus and the structure of the graph, under which.  
 – s = β / δ < τ : virus will die out exponentially quickly    
-– s = β / δ > τ : the infection survives and  becomes an epidemic.  
-<img width="640" alt="image" src="https://user-images.githubusercontent.com/29950267/227462561-a0126150-c42a-4c6a-aaa3-a171b831d173.png">
+– s = β / δ > τ : the infection survives and  becomes an epidemic.    
+<img width="640" alt="image" src="https://user-images.githubusercontent.com/29950267/227462561-a0126150-c42a-4c6a-aaa3-a171b831d173.png">   
 Similarity to this Connection: centrality matrix [也是用到了largest eign-vector，但是是用到transition matrix]   
 With higer eign-value, the better connectivity.   
 怎么看图.  
@@ -86,5 +86,9 @@ Why no gurantee? 一般是使用与比较not aprroprite distributed的graph
 
 ### Influence maximization
 <img width="640" alt="image" src="https://user-images.githubusercontent.com/29950267/227471601-5bf0bf6f-9296-46e3-90b3-30428f4d3889.png">
-Most influential set of size k: set  S of k nodes producing the largest expected cascade size f(S) if activated: maxf(S)
+Most influential set of size k: set  S of k nodes producing the largest expected cascade size f(S) if activated: maxf(S).  
+首先这是一个NP-hard problem
+Greedy Algorithm:
+1. – Start with an empty set S
+2. – For k iterations: Add node v to S that maximizes f(S+v) - f(S)
 
