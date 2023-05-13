@@ -373,6 +373,20 @@ on a.seven_days_ago = b.visited_on
 where a.visited_on - (select min(visited_on) from customer) >= 6
 ```
 
+#### 570. Managers with at Least 5 Direct Reports
+```sql
+    select 
+        name
+    from(
+    select 
+        managerId,
+        count(id) as cnt
+    from employee
+    group by 1)tb
+    join employee e on tb.cnt >= 5 and tb.managerId = e.id
+```
+
+
 ## 京东SQL面试题
 #### 1. 考察日期函数
 ![image](https://user-images.githubusercontent.com/29950267/215034371-f29632b6-65ac-4e82-b88e-9ba679c10354.png)
